@@ -131,7 +131,7 @@ router.post('/verify-otp', async (req, res) => {
       permissions: permissions
     };
 
-    const token = jwt.sign(tokenPayload, JWT_SECRET, { expiresIn: '30s' });
+    const token = jwt.sign(tokenPayload, JWT_SECRET, { expiresIn: '30m' });
 
     res.json({
       token: `Bearer ${token}`,
