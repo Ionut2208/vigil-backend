@@ -183,10 +183,6 @@ async function startServer() {
     });
   });
 
-  const sslOptions = {
-  key: fs.readFileSync(path.join(__dirname, 'server.key')),
-  cert: fs.readFileSync(path.join(__dirname, 'server.cert'))
-};
 
   const isProduction = process.env.NODE_ENV === 'production';
 
