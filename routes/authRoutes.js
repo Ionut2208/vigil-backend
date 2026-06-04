@@ -74,7 +74,7 @@ router.post('/login', async (req, res) => {
 
     verificationStore.set(username, { emailCode, currentStep: 2 });
 
-    res.json({ status: "AWAITING_EMAIL_VERIFICATION", username });
+    res.json({ status: "AWAITING_EMAIL_VERIFICATION", username, debugEmailCode: emailCode });
   } catch (err) {
     res.status(500).json({ error: "Server Error during Authentication Gateway" });
   }
@@ -99,7 +99,7 @@ router.post('/verify-email', async (req, res) => {
 
   verificationStore.set(username, { otpCode, currentStep: 3 });
 
-  res.json({ status: "AWAITING_OTP_VERIFICATION", username });
+  res.json({ status: "AWAITING_OTP_VERIFICATION", username, debugOtpCode: otpCode });
 });
 
 router.post('/verify-otp', async (req, res) => {
